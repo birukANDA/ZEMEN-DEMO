@@ -166,6 +166,7 @@
     .header-shadow {
       box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.05);
     }
+    /* Loading spinner */
     .loader {
       width: 48px;
       height: 48px;
@@ -193,6 +194,7 @@
       0% { transform: rotate(0deg); }
       100% { transform: rotate(360deg); }
     }
+    /* Modal styles */
     .modal-overlay {
       position: fixed;
       top: 0;
@@ -217,6 +219,7 @@
     }
     @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
     @keyframes slideUp { from { transform: translateY(40px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+    /* scroll to top button */
     .scroll-top {
       position: fixed;
       bottom: 30px;
@@ -244,16 +247,19 @@
       background: #c2410c;
       transform: translateY(-3px);
     }
+    /* testimonial card hover */
     .testimonial-card {
       transition: all 0.3s;
     }
     .testimonial-card:hover {
       transform: translateY(-8px);
     }
+    /* counter animation */
     .counter {
       font-feature-settings: "tnum";
       font-variant-numeric: tabular-nums;
     }
+    /* Floating animation for feature cards */
     @keyframes float {
       0%, 100% { transform: translateY(0px); }
       50% { transform: translateY(-8px); }
@@ -267,6 +273,7 @@
     .animate-float-delay-2 {
       animation: float 3s ease-in-out infinite 1s;
     }
+    /* Product image zoom and shine effect */
     .product-image-container {
       overflow: hidden;
       position: relative;
@@ -292,6 +299,7 @@
     .product-image-container:hover::after {
       left: 200%;
     }
+    /* Modern header gradient animation */
     @keyframes gradientShift {
       0% { background-position: 0% 50%; }
       50% { background-position: 100% 50%; }
@@ -302,6 +310,7 @@
       background-size: 200% 200%;
       animation: gradientShift 8s ease infinite;
     }
+    /* Feature card hover effect */
     .feature-card-modern {
       transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     }
@@ -346,7 +355,7 @@
     }
 
     /* Fix touch targets on mobile */
-    .mobile-link, button, a, .scroll-top, .thumbnail-btn {
+    .mobile-link, button, a, .scroll-top, .thumbnail-btn, .read-more-btn, .quick-view-btn, .product-inq-btn {
       touch-action: manipulation;
     }
 
@@ -366,6 +375,7 @@
       .feature-card-modern:hover {
         transform: none !important;
         box-shadow: none !important;
+        border-color: rgba(255,255,255,0.2) !important;
       }
       .product-image-container:hover .product-image {
         transform: none !important;
@@ -382,6 +392,7 @@
       }
       .scroll-top:hover {
         transform: none !important;
+        background: #ea580c !important;
       }
       .testimonial-card:hover {
         transform: none !important;
@@ -391,6 +402,63 @@
       }
       .card-wrapper .group-hover\:scale-\[1\.02\] {
         transform: none !important;
+      }
+      .card-wrapper .group-hover\:border-orange-500 {
+        border-color: rgba(249, 115, 22, 0.3) !important;
+      }
+      .card-wrapper .group-hover\:shadow-\[0_0_40px_rgba\(249\,115\,22\,0\.4\)\] {
+        box-shadow: none !important;
+      }
+      .product-card:hover {
+        transform: none !important;
+        border-color: transparent !important;
+        box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04) !important;
+      }
+      .product-card .group-hover\:scale-110 {
+        transform: none !important;
+      }
+      .product-card .group-hover\:text-orange-300 {
+        color: #ffffff !important;
+      }
+      .product-image-container:hover .product-image {
+        transform: none !important;
+      }
+      .product-image-container:hover::after {
+        left: -100% !important;
+      }
+      .quick-view-btn:hover {
+        background-color: rgba(255, 255, 255, 0.9) !important;
+        color: inherit !important;
+      }
+      .quick-view-btn:hover .text-\[\#007bc7\] {
+        color: #007bc7 !important;
+      }
+      .animate-float, .animate-float-delay-1, .animate-float-delay-2 {
+        animation-play-state: paused;
+      }
+      .read-more-btn:hover {
+        color: #fb923c !important;
+      }
+      .group:hover .bg-orange-500 {
+        background-color: rgba(234, 88, 12, 0.2) !important;
+      }
+      .group:hover .text-orange-400 {
+        color: #fb923c !important;
+      }
+      .group:hover .group-hover\:bg-orange-500 {
+        background-color: rgba(234, 88, 12, 0.2) !important;
+      }
+      .group:hover .group-hover\:text-white {
+        color: #fb923c !important;
+      }
+      .bg-white\/10:hover {
+        background-color: rgba(255, 255, 255, 0.05) !important;
+      }
+      #heroCatalogBtn:hover, #heroQuoteBtn:hover {
+        transform: none !important;
+      }
+      .product-inq-btn:hover {
+        background: linear-gradient(to right, #ea580c, #c2410c) !important;
       }
     }
 
@@ -402,7 +470,11 @@
       #desktopQuoteBtn,
       #mobileQuoteBtn,
       .thumbnail-btn,
-      .read-more-btn {
+      .read-more-btn,
+      .product-inq-btn,
+      .quick-view-btn,
+      .submit-btn,
+      #submitBtn {
         min-height: 44px;
         min-width: 44px;
       }
@@ -425,6 +497,92 @@
         padding: 1.5rem !important;
         max-height: 90vh;
         overflow-y: auto;
+      }
+      
+      #productModal .bg-white {
+        margin: 0.75rem;
+        max-height: 90vh;
+        overflow-y: auto;
+      }
+      
+      #productModal .bg-white {
+        padding: 1.25rem !important;
+      }
+      
+      /* Fix footer on mobile */
+      .grid-cols-1.md\:grid-cols-2.lg\:grid-cols-5 {
+        gap: 1.5rem !important;
+      }
+      
+      /* Fix about section on mobile */
+      .grid-cols-1.lg\:grid-cols-2 {
+        gap: 2rem !important;
+      }
+      
+      /* Fix services section on mobile */
+      .grid-cols-1.lg\:grid-cols-2 {
+        gap: 2rem !important;
+      }
+      
+      /* Contact section mobile fixes */
+      .bg-white\/10 {
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
+      }
+    }
+
+    @media (max-width: 640px) {
+      .product-card {
+        width: 260px !important;
+      }
+      #productSlider {
+        gap: 12px !important;
+        padding: 8px 4px !important;
+      }
+      .card-wrapper {
+        width: 280px !important;
+      }
+      .text-slide .slide-title {
+        font-size: 2.2rem !important;
+      }
+      .text-slide .slide-desc {
+        font-size: 0.95rem !important;
+      }
+      .relative.min-h-\[260px\] {
+        min-height: 220px !important;
+      }
+      .text-4xl {
+        font-size: 2.25rem !important;
+      }
+      .text-3xl {
+        font-size: 1.875rem !important;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .product-card {
+        width: 240px !important;
+      }
+      #productSlider {
+        gap: 10px !important;
+      }
+      .card-wrapper {
+        width: 260px !important;
+      }
+      .relative.min-h-\[260px\] {
+        min-height: 200px !important;
+      }
+      .text-slide .slide-title {
+        font-size: 1.8rem !important;
+      }
+      .text-slide .slide-desc {
+        font-size: 0.85rem !important;
+      }
+      .text-4xl {
+        font-size: 1.875rem !important;
+      }
+      .text-3xl {
+        font-size: 1.5rem !important;
       }
     }
 
@@ -458,14 +616,6 @@
       font-size: 16px !important;
     }
 
-    /* Fix for contact section on mobile */
-    @media (max-width: 640px) {
-      .bg-white\/10 {
-        backdrop-filter: blur(8px);
-        -webkit-backdrop-filter: blur(8px);
-      }
-    }
-
     /* Fix for hero text slider on mobile */
     @media (max-width: 768px) {
       .text-slide .slide-title {
@@ -492,6 +642,54 @@
     #productSlider {
       -webkit-overflow-scrolling: touch;
       scroll-behavior: smooth;
+    }
+
+    /* Fix for read more on mobile */
+    .read-more-btn.expanded i {
+      transform: rotate(180deg);
+    }
+
+    /* Fix for scrollbar on mobile */
+    .scrollbar-thin::-webkit-scrollbar {
+      width: 4px;
+    }
+    .scrollbar-thin::-webkit-scrollbar-track {
+      background: transparent;
+    }
+    .scrollbar-thin::-webkit-scrollbar-thumb {
+      background: rgba(249, 115, 22, 0.3);
+      border-radius: 10px;
+    }
+
+    /* Fix for testimonial text overflow */
+    .card-wrapper .leading-relaxed {
+      word-wrap: break-word;
+      overflow-wrap: break-word;
+    }
+
+    /* Fix for address on mobile */
+    address {
+      font-style: normal;
+      word-wrap: break-word;
+    }
+
+    /* Fix for input autofill */
+    input:-webkit-autofill,
+    input:-webkit-autofill:hover, 
+    input:-webkit-autofill:focus, 
+    input:-webkit-autofill:active {
+      -webkit-box-shadow: 0 0 0 30px #1e293b inset !important;
+      -webkit-text-fill-color: white !important;
+      caret-color: white;
+    }
+
+    /* Fix for hover states on touch devices */
+    @media (hover: none) {
+      .feature-card-modern:hover {
+        transform: none !important;
+        border-color: rgba(255, 255, 255, 0.2) !important;
+        box-shadow: none !important;
+      }
     }
   </style>
 
@@ -595,234 +793,261 @@
   </div>
 
   <!-- Modernized Navbar with Glassmorphism -->
-  <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-500 border-b border-blue-900/40 shadow-2xl" style="background-color: rgba(10, 15, 26, 1.0); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);">
-    <div class="container mx-auto px-4 md:px-6">
-      <div class="flex items-center justify-between py-3.5">
+<!-- Navigation Bar Container -->
+<!-- Navigation Bar -->
+<nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-500 border-b border-blue-900/40 shadow-2xl" style="background-color: rgba(10, 15, 26, 1.0); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);">
+  <div class="container mx-auto px-4 md:px-6">
+    <div class="flex items-center justify-between py-3.5">
 
-        <!-- Logo -->
-        <a href="index.html" class="flex items-center gap-2 md:gap-3 group cursor-pointer flex-shrink-0">
-          <div class="bg-slate-900/80 p-1.5 md:p-2 rounded-xl shadow-lg border border-slate-200/20 transition-all duration-500 group-hover:scale-105 group-hover:shadow-orange-500/30 group-hover:border-orange-500/50">
-            <img src="https://storage.googleapis.com/dala-prod-public-storage/attachments/25295124-a11e-447a-9654-cf77555a8f9c/1776361982617_photo_2025-10-14_11-35-55.png" alt="Zemen Logo" class="w-8 h-8 md:w-10 md:h-10 object-contain">
-          </div>
-          <div class="leading-tight hidden sm:block">
-            <span class="text-base md:text-lg font-black text-white tracking-tight group-hover:text-slate-100 transition-colors">
-              Zemen <span class="text-orange-500 drop-shadow-[0_0_8px_rgba(249,115,22,0.4)]">trading plc</span>
-            </span>
-            <span class="block text-[8px] md:text-[10px] font-bold text-blue-300/70 tracking-widest uppercase group-hover:text-orange-400 transition-colors">
-              Industrial Steel Supply
-            </span>
-          </div>
-        </a>
-
-        <!-- Desktop Menu -->
-        <div class="hidden lg:flex items-center gap-6 xl:gap-8">
-          <div class="flex items-center gap-4 xl:gap-7 text-sm font-semibold tracking-wide">
-            <a href="#home" class="nav-link relative text-slate-300 hover:text-white transition-all duration-300 py-1 group flex items-center gap-1.5">
-              <span class="w-1.5 h-1.5 rounded-full bg-orange-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300 shadow-[0_0_8px_#f97316]"></span>
-              <span>Home</span>
-              <span class="absolute bottom-0 left-0 w-0 h-[2px] bg-gradient-to-r from-orange-500 to-amber-400 transition-all duration-300 group-hover:w-full rounded-full"></span>
-            </a>
-            <a href="about.html" class="nav-link relative text-slate-300 hover:text-white transition-all duration-300 py-1 group flex items-center gap-1.5">
-              <span class="w-1.5 h-1.5 rounded-full bg-orange-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300 shadow-[0_0_8px_#f97316]"></span>
-              <span>About</span>
-              <span class="absolute bottom-0 left-0 w-0 h-[2px] bg-gradient-to-r from-orange-500 to-amber-400 transition-all duration-300 group-hover:w-full rounded-full"></span>
-            </a>
-            <a href="#products" class="nav-link relative text-slate-300 hover:text-white transition-all duration-300 py-1 group flex items-center gap-1.5">
-              <span class="w-1.5 h-1.5 rounded-full bg-orange-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300 shadow-[0_0_8px_#f97316]"></span>
-              <span>Products</span>
-              <span class="absolute bottom-0 left-0 w-0 h-[2px] bg-gradient-to-r from-orange-500 to-amber-400 transition-all duration-300 group-hover:w-full rounded-full"></span>
-            </a>
-            <a href="#services" class="nav-link relative text-slate-300 hover:text-white transition-all duration-300 py-1 group flex items-center gap-1.5">
-              <span class="w-1.5 h-1.5 rounded-full bg-orange-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300 shadow-[0_0_8px_#f97316]"></span>
-              <span>Services</span>
-              <span class="absolute bottom-0 left-0 w-0 h-[2px] bg-gradient-to-r from-orange-500 to-amber-400 transition-all duration-300 group-hover:w-full rounded-full"></span>
-            </a>
-            <a href="#testimonials" class="nav-link relative text-slate-300 hover:text-white transition-all duration-300 py-1 group flex items-center gap-1.5">
-              <span class="w-1.5 h-1.5 rounded-full bg-orange-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300 shadow-[0_0_8px_#f97316]"></span>
-              <span>Client</span>
-              <span class="absolute bottom-0 left-0 w-0 h-[2px] bg-gradient-to-r from-orange-500 to-amber-400 transition-all duration-300 group-hover:w-full rounded-full"></span>
-            </a>
-            <a href="#contact" class="nav-link relative text-slate-300 hover:text-white transition-all duration-300 py-1 group flex items-center gap-1.5">
-              <span class="w-1.5 h-1.5 rounded-full bg-orange-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300 shadow-[0_0_8px_#f97316]"></span>
-              <span>Contact</span>
-              <span class="absolute bottom-0 left-0 w-0 h-[2px] bg-gradient-to-r from-orange-500 to-amber-400 transition-all duration-300 group-hover:w-full rounded-full"></span>
-            </a>
-          </div>
-
-          <!-- CTA Button -->
-          <button id="desktopQuoteBtn" class="relative group px-5 xl:px-6 py-2.5 rounded-full font-extrabold text-white 
-            bg-gradient-to-r from-orange-500 via-amber-500 to-orange-600 
-            hover:from-orange-600 hover:to-amber-600 
-            shadow-[0_0_20px_rgba(249,115,22,0.4)] hover:shadow-[0_0_30px_rgba(249,115,22,0.7)] 
-            transition-all duration-300 transform hover:scale-105 active:scale-95 overflow-hidden">
-            <span class="absolute top-0 left-0 w-full h-full bg-white/20 -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-in-out"></span>
-            <span class="relative z-10 flex items-center gap-2 tracking-wider uppercase text-xs">
-              <i class="fas fa-bolt text-xs animate-pulse text-amber-200"></i> Get Quote
-            </span>
-          </button>
+      <!-- Logo -->
+      <a href="index.html" class="flex items-center gap-2 md:gap-3 group cursor-pointer flex-shrink-0">
+        <div class="bg-slate-900/80 p-1.5 md:p-2 rounded-xl shadow-lg border border-slate-200/20 transition-all duration-500 group-hover:scale-105 group-hover:shadow-orange-500/30 group-hover:border-orange-500/50">
+          <img src="https://storage.googleapis.com/dala-prod-public-storage/attachments/25295124-a11e-447a-9654-cf77555a8f9c/1776361982617_photo_2025-10-14_11-35-55.png" alt="Zemen Logo" class="w-8 h-8 md:w-10 md:h-10 object-contain">
         </div>
+        <div class="leading-tight hidden sm:block">
+          <span class="text-base md:text-lg font-black text-white tracking-tight group-hover:text-slate-100 transition-colors">
+            Zemen <span class="text-orange-500 drop-shadow-[0_0_8px_rgba(249,115,22,0.4)]">trading plc</span>
+          </span>
+          <span class="block text-[8px] md:text-[10px] font-bold text-blue-300/70 tracking-widest uppercase group-hover:text-orange-400 transition-colors">
+            Industrial Steel Supply
+          </span>
+        </div>
+      </a>
 
-        <!-- Mobile Buttons -->
-        <div class="flex lg:hidden items-center gap-2 sm:gap-3">
-          <a href="tel:+251911257109" class="p-2.5 bg-orange-500/10 border border-orange-500/30 rounded-full text-orange-400 hover:bg-orange-500 hover:text-white transition-all" aria-label="Call us">
-            <i class="fas fa-phone-alt text-sm"></i>
+      <!-- Desktop Menu -->
+      <div class="hidden lg:flex items-center gap-6 xl:gap-8">
+        <div class="flex items-center gap-4 xl:gap-7 text-sm font-semibold tracking-wide">
+          <a href="#home" class="nav-link relative text-slate-300 hover:text-white transition-all duration-300 py-1 group flex items-center gap-1.5">
+            <span class="w-1.5 h-1.5 rounded-full bg-orange-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300 shadow-[0_0_8px_#f97316]"></span>
+            <span>Home</span>
+            <span class="absolute bottom-0 left-0 w-0 h-[2px] bg-gradient-to-r from-orange-500 to-amber-400 transition-all duration-300 group-hover:w-full rounded-full"></span>
           </a>
-          <button id="mobileMenuBtn" class="p-2.5 rounded-xl bg-slate-800/80 border border-slate-700 text-slate-200 hover:bg-slate-700 transition-all" aria-label="Toggle menu" aria-expanded="false">
-            <i class="fas fa-bars text-lg"></i>
-          </button>
+          <a href="about.html" class="nav-link relative text-slate-300 hover:text-white transition-all duration-300 py-1 group flex items-center gap-1.5">
+            <span class="w-1.5 h-1.5 rounded-full bg-orange-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300 shadow-[0_0_8px_#f97316]"></span>
+            <span>About</span>
+            <span class="absolute bottom-0 left-0 w-0 h-[2px] bg-gradient-to-r from-orange-500 to-amber-400 transition-all duration-300 group-hover:w-full rounded-full"></span>
+          </a>
+          <a href="#products" class="nav-link relative text-slate-300 hover:text-white transition-all duration-300 py-1 group flex items-center gap-1.5">
+            <span class="w-1.5 h-1.5 rounded-full bg-orange-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300 shadow-[0_0_8px_#f97316]"></span>
+            <span>Products</span>
+            <span class="absolute bottom-0 left-0 w-0 h-[2px] bg-gradient-to-r from-orange-500 to-amber-400 transition-all duration-300 group-hover:w-full rounded-full"></span>
+          </a>
+          <a href="#services" class="nav-link relative text-slate-300 hover:text-white transition-all duration-300 py-1 group flex items-center gap-1.5">
+            <span class="w-1.5 h-1.5 rounded-full bg-orange-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300 shadow-[0_0_8px_#f97316]"></span>
+            <span>Services</span>
+            <span class="absolute bottom-0 left-0 w-0 h-[2px] bg-gradient-to-r from-orange-500 to-amber-400 transition-all duration-300 group-hover:w-full rounded-full"></span>
+          </a>
+          <a href="#testimonials" class="nav-link relative text-slate-300 hover:text-white transition-all duration-300 py-1 group flex items-center gap-1.5">
+            <span class="w-1.5 h-1.5 rounded-full bg-orange-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300 shadow-[0_0_8px_#f97316]"></span>
+            <span>Client</span>
+            <span class="absolute bottom-0 left-0 w-0 h-[2px] bg-gradient-to-r from-orange-500 to-amber-400 transition-all duration-300 group-hover:w-full rounded-full"></span>
+          </a>
+          <a href="#contact" class="nav-link relative text-slate-300 hover:text-white transition-all duration-300 py-1 group flex items-center gap-1.5">
+            <span class="w-1.5 h-1.5 rounded-full bg-orange-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300 shadow-[0_0_8px_#f97316]"></span>
+            <span>Contact</span>
+            <span class="absolute bottom-0 left-0 w-0 h-[2px] bg-gradient-to-r from-orange-500 to-amber-400 transition-all duration-300 group-hover:w-full rounded-full"></span>
+          </a>
         </div>
 
+        <!-- CTA Button -->
+        <button id="desktopQuoteBtn" class="relative group px-5 xl:px-6 py-2.5 rounded-full font-extrabold text-white 
+          bg-gradient-to-r from-orange-500 via-amber-500 to-orange-600 
+          hover:from-orange-600 hover:to-amber-600 
+          shadow-[0_0_20px_rgba(249,115,22,0.4)] hover:shadow-[0_0_30px_rgba(249,115,22,0.7)] 
+          transition-all duration-300 transform hover:scale-105 active:scale-95 overflow-hidden">
+          <span class="absolute top-0 left-0 w-full h-full bg-white/20 -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-in-out"></span>
+          <span class="relative z-10 flex items-center gap-2 tracking-wider uppercase text-xs">
+            <i class="fas fa-bolt text-xs animate-pulse text-amber-200"></i> Get Quote
+          </span>
+        </button>
       </div>
 
-      <!-- Mobile Menu -->
-      <div id="mobileMenu" class="hidden lg:hidden absolute top-full left-0 right-0 border-t border-slate-800 shadow-2xl p-4 sm:p-6 flex flex-col gap-3 sm:gap-4 mt-1 rounded-b-2xl z-50 transition-all" style="background-color: rgba(10, 15, 26, 0.95); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);">
-        <a href="#home" class="mobile-link text-base font-semibold text-slate-200 py-2.5 border-b border-slate-800 hover:text-orange-400 hover:translate-x-2 transition-all flex items-center justify-between">
-          <span>Home</span>
-          <i class="fas fa-chevron-right text-xs text-slate-600"></i>
+      <!-- Mobile Buttons -->
+      <div class="flex lg:hidden items-center gap-2 sm:gap-3">
+        <a href="tel:+251911257109" class="p-2.5 bg-orange-500/10 border border-orange-500/30 rounded-full text-orange-400 hover:bg-orange-500 hover:text-white transition-all" aria-label="Call us">
+          <i class="fas fa-phone-alt text-sm"></i>
         </a>
-        <a href="about.html" class="mobile-link text-base font-semibold text-slate-200 py-2.5 border-b border-slate-800 hover:text-orange-400 hover:translate-x-2 transition-all flex items-center justify-between">
-          <span>About</span>
-          <i class="fas fa-chevron-right text-xs text-slate-600"></i>
-        </a>
-        <a href="#products" class="mobile-link text-base font-semibold text-slate-200 py-2.5 border-b border-slate-800 hover:text-orange-400 hover:translate-x-2 transition-all flex items-center justify-between">
-          <span>Products</span>
-          <i class="fas fa-chevron-right text-xs text-slate-600"></i>
-        </a>
-        <a href="#services" class="mobile-link text-base font-semibold text-slate-200 py-2.5 border-b border-slate-800 hover:text-orange-400 hover:translate-x-2 transition-all flex items-center justify-between">
-          <span>Services</span>
-          <i class="fas fa-chevron-right text-xs text-slate-600"></i>
-        </a>
-        <a href="#testimonials" class="mobile-link text-base font-semibold text-slate-200 py-2.5 border-b border-slate-800 hover:text-orange-400 hover:translate-x-2 transition-all flex items-center justify-between">
-          <span>Reviews</span>
-          <i class="fas fa-chevron-right text-xs text-slate-600"></i>
-        </a>
-        <a href="#contact" class="mobile-link text-base font-semibold text-slate-200 py-2.5 border-b border-slate-800 hover:text-orange-400 hover:translate-x-2 transition-all flex items-center justify-between">
-          <span>Contact</span>
-          <i class="fas fa-chevron-right text-xs text-slate-600"></i>
-        </a>
-
-        <button id="mobileQuoteBtn" class="bg-gradient-to-r from-orange-500 to-orange-600 text-white font-black uppercase text-xs tracking-wider py-3.5 rounded-xl shadow-lg shadow-orange-500/25 active:scale-95 transition-all min-h-[44px]">
-          Get Quote
+        <button id="mobileMenuBtn" class="p-2.5 rounded-xl bg-slate-800/80 border border-slate-700 text-slate-200 hover:bg-slate-700 transition-all" aria-label="Toggle menu" aria-expanded="false">
+          <i class="fas fa-bars text-lg"></i>
         </button>
-
-        <div class="flex flex-col gap-3 pt-3 text-sm text-slate-400 border-t border-slate-800 mt-2">
-          <div class="flex items-center gap-3"><i class="fas fa-phone-alt text-orange-400 w-4"></i><span>TEL: +251 (116) 670-162</span></div>
-          <div class="flex items-center gap-3"><i class="fas fa-envelope text-orange-400 w-4"></i><span>zementradingplc@gmail.com</span></div>
-        </div>
       </div>
 
     </div>
-  </nav>
 
-  <script>
-    document.addEventListener('DOMContentLoaded', function () {
-      const navbar = document.getElementById('navbar');
+    <!-- Mobile Menu -->
+    <div id="mobileMenu" class="hidden lg:hidden absolute top-full left-0 right-0 border-t border-slate-800 shadow-2xl p-4 sm:p-6 flex flex-col gap-3 sm:gap-4 mt-1 rounded-b-2xl z-50 transition-all" style="background-color: rgba(10, 15, 26, 0.95); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);">
+      <a href="#home" class="mobile-link text-base font-semibold text-slate-200 py-2.5 border-b border-slate-800 hover:text-orange-400 hover:translate-x-2 transition-all flex items-center justify-between">
+        <span>Home</span>
+        <i class="fas fa-chevron-right text-xs text-slate-600"></i>
+      </a>
+      <a href="about.html" class="mobile-link text-base font-semibold text-slate-200 py-2.5 border-b border-slate-800 hover:text-orange-400 hover:translate-x-2 transition-all flex items-center justify-between">
+        <span>About</span>
+        <i class="fas fa-chevron-right text-xs text-slate-600"></i>
+      </a>
+      <a href="#products" class="mobile-link text-base font-semibold text-slate-200 py-2.5 border-b border-slate-800 hover:text-orange-400 hover:translate-x-2 transition-all flex items-center justify-between">
+        <span>Products</span>
+        <i class="fas fa-chevron-right text-xs text-slate-600"></i>
+      </a>
+      <a href="#services" class="mobile-link text-base font-semibold text-slate-200 py-2.5 border-b border-slate-800 hover:text-orange-400 hover:translate-x-2 transition-all flex items-center justify-between">
+        <span>Services</span>
+        <i class="fas fa-chevron-right text-xs text-slate-600"></i>
+      </a>
+      <a href="#testimonials" class="mobile-link text-base font-semibold text-slate-200 py-2.5 border-b border-slate-800 hover:text-orange-400 hover:translate-x-2 transition-all flex items-center justify-between">
+        <span>Reviews</span>
+        <i class="fas fa-chevron-right text-xs text-slate-600"></i>
+      </a>
+      <a href="#contact" class="mobile-link text-base font-semibold text-slate-200 py-2.5 border-b border-slate-800 hover:text-orange-400 hover:translate-x-2 transition-all flex items-center justify-between">
+        <span>Contact</span>
+        <i class="fas fa-chevron-right text-xs text-slate-600"></i>
+      </a>
 
-      function updateNavbarOpacity() {
-        if (window.scrollY === 0) {
-          navbar.style.backgroundColor = 'rgba(10, 15, 26, 1.0)';
-          navbar.style.borderColor = 'rgba(30, 58, 138, 0.4)';
-        } else {
-          navbar.style.backgroundColor = 'rgba(10, 15, 26, 0.75)';
-          navbar.style.borderColor = 'rgba(30, 58, 138, 0.6)';
-        }
+      <button id="mobileQuoteBtn" class="bg-gradient-to-r from-orange-500 to-orange-600 text-white font-black uppercase text-xs tracking-wider py-3.5 rounded-xl shadow-lg shadow-orange-500/25 active:scale-95 transition-all min-h-[44px]">
+        Get Quote
+      </button>
+
+      <div class="flex flex-col gap-3 pt-3 text-sm text-slate-400 border-t border-slate-800 mt-2">
+        <div class="flex items-center gap-3"><i class="fas fa-phone-alt text-orange-400 w-4"></i><span>TEL: +251 (116) 670-162</span></div>
+        <div class="flex items-center gap-3"><i class="fas fa-envelope text-orange-400 w-4"></i><span>zementradingplc@gmail.com</span></div>
+      </div>
+    </div>
+
+  </div>
+</nav>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const navbar = document.getElementById('navbar');
+
+    function updateNavbarOpacity() {
+      if (window.scrollY === 0) {
+        navbar.style.backgroundColor = 'rgba(10, 15, 26, 1.0)';
+        navbar.style.borderColor = 'rgba(30, 58, 138, 0.4)';
+      } else {
+        navbar.style.backgroundColor = 'rgba(10, 15, 26, 0.75)';
+        navbar.style.borderColor = 'rgba(30, 58, 138, 0.6)';
       }
+    }
 
-      window.addEventListener('scroll', updateNavbarOpacity);
-      updateNavbarOpacity();
+    window.addEventListener('scroll', updateNavbarOpacity);
+    updateNavbarOpacity();
 
-      // Mobile Menu Toggle
-      const mobileBtn = document.getElementById('mobileMenuBtn');
-      const mobileMenu = document.getElementById('mobileMenu');
-      let menuOpen = false;
+    // Mobile Menu Toggle
+    const mobileBtn = document.getElementById('mobileMenuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    let menuOpen = false;
 
-      mobileBtn.addEventListener('click', function(e) {
-        e.stopPropagation();
-        menuOpen = !menuOpen;
-        mobileMenu.classList.toggle('hidden');
-        mobileBtn.setAttribute('aria-expanded', menuOpen);
+    mobileBtn.addEventListener('click', function(e) {
+      e.stopPropagation();
+      menuOpen = !menuOpen;
+      mobileMenu.classList.toggle('hidden');
+      mobileBtn.setAttribute('aria-expanded', menuOpen);
+      const icon = mobileBtn.querySelector('i');
+      if (menuOpen) {
+        icon.className = 'fas fa-times text-lg';
+        document.body.classList.add('no-scroll');
+      } else {
+        icon.className = 'fas fa-bars text-lg';
+        document.body.classList.remove('no-scroll');
+      }
+    });
+
+    // Close mobile menu on link click
+    document.querySelectorAll('.mobile-link').forEach(link => {
+      link.addEventListener('click', function() {
+        mobileMenu.classList.add('hidden');
+        menuOpen = false;
+        mobileBtn.setAttribute('aria-expanded', 'false');
         const icon = mobileBtn.querySelector('i');
-        if (menuOpen) {
-          icon.className = 'fas fa-times text-lg';
-          document.body.classList.add('no-scroll');
-        } else {
-          icon.className = 'fas fa-bars text-lg';
-          document.body.classList.remove('no-scroll');
-        }
+        icon.className = 'fas fa-bars text-lg';
+        document.body.classList.remove('no-scroll');
       });
+    });
 
-      // Close mobile menu on link click      document.querySelectorAll('.mobile-link').forEach(link => {
-        link.addEventListener('click', function() {
-          mobileMenu.classList.add('hidden');
-          menuOpen = false;
-          mobileBtn.setAttribute('aria-expanded', 'false');
-          const icon = mobileBtn.querySelector('i');
-          icon.className = 'fas fa-bars text-lg';
-          document.body.classList.remove('no-scroll');
-        });
-      });
+    // Close mobile menu when clicking outside
+    document.addEventListener('click', function(e) {
+      if (menuOpen && !mobileMenu.contains(e.target) && !mobileBtn.contains(e.target)) {
+        mobileMenu.classList.add('hidden');
+        menuOpen = false;
+        mobileBtn.setAttribute('aria-expanded', 'false');
+        const icon = mobileBtn.querySelector('i');
+        icon.className = 'fas fa-bars text-lg';
+        document.body.classList.remove('no-scroll');
+      }
+    });
 
-      // Close mobile menu when clicking outside
-      document.addEventListener('click', function(e) {
-        if (menuOpen && !mobileMenu.contains(e.target) && !mobileBtn.contains(e.target)) {
-          mobileMenu.classList.add('hidden');
-          menuOpen = false;
-          mobileBtn.setAttribute('aria-expanded', 'false');
-          const icon = mobileBtn.querySelector('i');
-          icon.className = 'fas fa-bars text-lg';
-          document.body.classList.remove('no-scroll');
-        }
-      });
+    // Scroll to Top Button
+    const scrollBtn = document.getElementById('scrollTopBtn');
+    window.addEventListener('scroll', function() {
+      if (window.scrollY > 300) {
+        scrollBtn.classList.add('show');
+      } else {
+        scrollBtn.classList.remove('show');
+      }
+    });
+    scrollBtn.addEventListener('click', function() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
 
-      // Scroll to Top Button
-      const scrollBtn = document.getElementById('scrollTopBtn');
-      window.addEventListener('scroll', function() {
-        if (window.scrollY > 300) {
-          scrollBtn.classList.add('show');
-        } else {
-          scrollBtn.classList.remove('show');
-        }
-      });
-      scrollBtn.addEventListener('click', function() {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-      });
-
-      // Quote Buttons - scroll to contact
-      const quoteBtns = ['desktopQuoteBtn', 'mobileQuoteBtn', 'heroQuoteBtn'];
-      quoteBtns.forEach(id => {
-        const btn = document.getElementById(id);
-        if (btn) {
-          btn.addEventListener('click', function() {
-            const contactSection = document.getElementById('contact');
-            if (contactSection) {
-              contactSection.scrollIntoView({ behavior: 'smooth' });
-            }
-          });
-        }
-      });
-
-      // Newsletter Button
-      const newsBtn = document.getElementById('newsBtn');
-      const newsEmail = document.getElementById('newsEmail');
-      if (newsBtn && newsEmail) {
-        newsBtn.addEventListener('click', function(e) {
-          e.preventDefault();
-          const email = newsEmail.value.trim();
-          if (email && email.includes('@') && email.includes('.')) {
-            alert('Thank you for subscribing! You will receive our updates shortly.');
-            newsEmail.value = '';
-          } else {
-            alert('Please enter a valid email address.');
-          }
-        });
-        newsEmail.addEventListener('keydown', function(e) {
-          if (e.key === 'Enter') {
-            newsBtn.click();
+    // Quote Buttons - scroll to contact
+    const quoteBtns = ['desktopQuoteBtn', 'mobileQuoteBtn', 'heroQuoteBtn'];
+    quoteBtns.forEach(id => {
+      const btn = document.getElementById(id);
+      if (btn) {
+        btn.addEventListener('click', function() {
+          const contactSection = document.getElementById('contact');
+          if (contactSection) {
+            contactSection.scrollIntoView({ behavior: 'smooth' });
           }
         });
       }
     });
-  </script>
+
+    // Newsletter Button
+    const newsBtn = document.getElementById('newsBtn');
+    const newsEmail = document.getElementById('newsEmail');
+    if (newsBtn && newsEmail) {
+      newsBtn.addEventListener('click', function(e) {
+        e.preventDefault();
+        const email = newsEmail.value.trim();
+        if (email && email.includes('@') && email.includes('.')) {
+          alert('Thank you for subscribing! You will receive our updates shortly.');
+          newsEmail.value = '';
+        } else {
+          alert('Please enter a valid email address.');
+        }
+      });
+      newsEmail.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter') {
+          newsBtn.click();
+        }
+      });
+    }
+
+    // Read More Toggle Functionality
+    const readButtons = document.querySelectorAll('.read-more-btn');
+    
+    readButtons.forEach(button => {
+      button.addEventListener('click', function(e) {
+        e.stopPropagation();
+        const card = this.closest('.bg-[#0a0f1a]/80');
+        const textContainer = card.querySelector('.leading-relaxed');
+        
+        if (textContainer) {
+          if (textContainer.style.maxHeight === 'none' || textContainer.classList.contains('expanded')) {
+            textContainer.style.maxHeight = window.innerWidth < 640 ? '120px' : '180px';
+            textContainer.classList.remove('expanded');
+            this.querySelector('span').textContent = 'Read More';
+          } else {
+            textContainer.style.maxHeight = textContainer.scrollHeight + 'px';
+            textContainer.classList.add('expanded');
+            this.querySelector('span').textContent = 'Read Less';
+          }
+          this.classList.toggle('expanded');
+        }
+      });
+    });
+  });
+</script>
   <main>
     <!-- Hero Section with animated gradient -->
 <section id="home" class="relative min-h-screen flex items-center pt-20 overflow-hidden">
@@ -835,27 +1060,31 @@
         alt="Rebar Hero 1" 
         class="bg-slide absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-100"
         data-index="0"
+        loading="lazy"
       >
       <!-- Image 2 -->
       <img 
-        src="image/photo_5.jpg" 
+        src="image\photo_5.jpg" 
         alt="Construction Site 2" 
         class="bg-slide absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-0"
         data-index="1"
+        loading="lazy"
       >
       <!-- Image 3 -->
       <img 
-        src="image/photo_2.jpg"
+        src="image\photo_2.jpg"
         alt="Steel Construction 3" 
         class="bg-slide absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-0"
         data-index="2"
+        loading="lazy"
       >
       <!-- Image 4 -->
       <img 
-        src="image/nail-scaled.jpg" 
+        src="image\nail-scaled.jpg" 
         alt="Building Materials 4" 
         class="bg-slide absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-0"
         data-index="3"
+        loading="lazy"
       >
     </div>
 
@@ -871,57 +1100,57 @@
       </div>
 
       <!-- Independent Text Slider Container -->
-      <div class="relative min-h-[220px] sm:min-h-[260px]">
+      <div class="relative min-h-[220px] sm:min-h-[240px] md:min-h-[260px]">
         <!-- Text Slide 1 -->
         <div class="text-slide active absolute inset-0" data-index="0">
-          <h1 class="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-extrabold text-white leading-tight mb-4 sm:mb-6 slide-title">Zemen <span class="text-orange-500">trading plc</span></h1>
-          <p class="text-base sm:text-lg md:text-xl text-slate-300 mb-6 sm:mb-8 max-w-2xl slide-desc">Reliable supply for large-scale infrastructure and residential projects. We provide high-grade rebar, wire mesh, and structural steel with guaranteed next-day delivery.</p>
+          <h1 class="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-extrabold text-white leading-tight mb-3 sm:mb-4 md:mb-6 slide-title">Zemen <span class="text-orange-500">trading plc</span></h1>
+          <p class="text-sm sm:text-base md:text-lg lg:text-xl text-slate-300 mb-4 sm:mb-6 md:mb-8 max-w-2xl slide-desc">Reliable supply for large-scale infrastructure and residential projects. We provide high-grade rebar, wire mesh, and structural steel with guaranteed next-day delivery.</p>
         </div>
 
         <!-- Text Slide 2 -->
         <div class="text-slide absolute inset-0" data-index="1">
-          <h1 class="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-extrabold text-white leading-tight mb-4 sm:mb-6 slide-title">Quality <span class="text-orange-500">Assured</span></h1>
-          <p class="text-base sm:text-lg md:text-xl text-slate-300 mb-6 sm:mb-8 max-w-2xl slide-desc">Guaranteed consistent product standards, complete process transparency, and strict adherence to international building specifications.</p>
+          <h1 class="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-extrabold text-white leading-tight mb-3 sm:mb-4 md:mb-6 slide-title">Quality <span class="text-orange-500">Assured</span></h1>
+          <p class="text-sm sm:text-base md:text-lg lg:text-xl text-slate-300 mb-4 sm:mb-6 md:mb-8 max-w-2xl slide-desc">Guaranteed consistent product standards, complete process transparency, and strict adherence to international building specifications.</p>
         </div>
 
         <!-- Text Slide 3 -->
         <div class="text-slide absolute inset-0" data-index="2">
-          <h1 class="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-extrabold text-white leading-tight mb-4 sm:mb-6 slide-title">Building <span class="text-orange-500">The Future</span></h1>
-          <p class="text-base sm:text-lg md:text-xl text-slate-300 mb-6 sm:mb-8 max-w-2xl slide-desc">Committed to local development, supporting essential construction needs with durable, top-tier materials.</p>
+          <h1 class="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-extrabold text-white leading-tight mb-3 sm:mb-4 md:mb-6 slide-title">Building <span class="text-orange-500">The Future</span></h1>
+          <p class="text-sm sm:text-base md:text-lg lg:text-xl text-slate-300 mb-4 sm:mb-6 md:mb-8 max-w-2xl slide-desc">Committed to local development, supporting essential construction needs with durable, top-tier materials.</p>
         </div>
       </div>
 
-      <div class="flex flex-col sm:flex-row gap-4 relative z-20 mt-4 sm:mt-6">
-        <button id="heroCatalogBtn" class="bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white px-6 sm:px-8 py-3 rounded-full text-base sm:text-lg font-semibold transition-all duration-300 flex items-center justify-center gap-2 shadow-lg transform hover:scale-105 min-h-[44px]"><i class="fas fa-file-pdf"></i> View Catalog <i class="fas fa-arrow-right"></i></button>
-        <button id="heroQuoteBtn" class="border-2 border-white/40 hover:bg-white/10 text-white px-6 sm:px-8 py-3 rounded-full text-base sm:text-lg font-semibold backdrop-blur-sm transition-all duration-300 transform hover:scale-105 min-h-[44px]"><i class="fas fa-quote-left mr-2"></i>Request Free Quote</button>
+      <div class="flex flex-col sm:flex-row gap-3 sm:gap-4 relative z-20 mt-3 sm:mt-4 md:mt-6">
+        <button id="heroCatalogBtn" class="bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white px-5 sm:px-6 md:px-8 py-2.5 sm:py-3 rounded-full text-sm sm:text-base md:text-lg font-semibold transition-all duration-300 flex items-center justify-center gap-2 shadow-lg transform hover:scale-105 min-h-[44px]"><i class="fas fa-file-pdf"></i> View Catalog <i class="fas fa-arrow-right"></i></button>
+        <button id="heroQuoteBtn" class="border-2 border-white/40 hover:bg-white/10 text-white px-5 sm:px-6 md:px-8 py-2.5 sm:py-3 rounded-full text-sm sm:text-base md:text-lg font-semibold backdrop-blur-sm transition-all duration-300 transform hover:scale-105 min-h-[44px]"><i class="fas fa-quote-left mr-2"></i>Request Free Quote</button>
       </div>
 
       <!-- Feature Cards -->
-      <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6 mt-12 sm:mt-16">
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4 md:gap-6 mt-8 sm:mt-10 md:mt-16">
         <div class="feature-card-modern bg-white/10 backdrop-blur-md rounded-2xl p-3 sm:p-4 text-center border border-white/20 hover:bg-white/20 transition-all duration-300 animate-float">
-          <div class="flex flex-col items-center gap-2">
-            <div class="w-12 h-12 sm:w-14 sm:h-14 bg-orange-500/20 rounded-full flex items-center justify-center">
-              <i class="fas fa-truck-fast text-2xl sm:text-3xl text-orange-500"></i>
+          <div class="flex flex-col items-center gap-1.5 sm:gap-2">
+            <div class="w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 bg-orange-500/20 rounded-full flex items-center justify-center">
+              <i class="fas fa-truck-fast text-xl sm:text-2xl md:text-3xl text-orange-500"></i>
             </div>
-            <h3 class="text-white font-bold text-base sm:text-lg">Fast Delivery</h3>
+            <h3 class="text-white font-bold text-sm sm:text-base md:text-lg">Fast Delivery</h3>
             <p class="text-xs sm:text-sm text-slate-300">Same-day dispatch for stock items</p>
           </div>
         </div>
         <div class="feature-card-modern bg-white/10 backdrop-blur-md rounded-2xl p-3 sm:p-4 text-center border border-white/20 hover:bg-white/20 transition-all duration-300 animate-float-delay-1">
-          <div class="flex flex-col items-center gap-2">
-            <div class="w-12 h-12 sm:w-14 sm:h-14 bg-orange-500/20 rounded-full flex items-center justify-center">
-              <i class="fas fa-shield-alt text-2xl sm:text-3xl text-orange-500"></i>
+          <div class="flex flex-col items-center gap-1.5 sm:gap-2">
+            <div class="w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 bg-orange-500/20 rounded-full flex items-center justify-center">
+              <i class="fas fa-shield-alt text-xl sm:text-2xl md:text-3xl text-orange-500"></i>
             </div>
-            <h3 class="text-white font-bold text-base sm:text-lg">Quality Assured</h3>
+            <h3 class="text-white font-bold text-sm sm:text-base md:text-lg">Quality Assured</h3>
             <p class="text-xs sm:text-sm text-slate-300">Tested & certified structural steel</p>
           </div>
         </div>
         <div class="feature-card-modern bg-white/10 backdrop-blur-md rounded-2xl p-3 sm:p-4 text-center border border-white/20 hover:bg-white/20 transition-all duration-300 animate-float-delay-2">
-          <div class="flex flex-col items-center gap-2">
-            <div class="w-12 h-12 sm:w-14 sm:h-14 bg-orange-500/20 rounded-full flex items-center justify-center">
-              <i class="fas fa-cut text-2xl sm:text-3xl text-orange-500"></i>
+          <div class="flex flex-col items-center gap-1.5 sm:gap-2">
+            <div class="w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 bg-orange-500/20 rounded-full flex items-center justify-center">
+              <i class="fas fa-cut text-xl sm:text-2xl md:text-3xl text-orange-500"></i>
             </div>
-            <h3 class="text-white font-bold text-base sm:text-lg">Custom Cutting</h3>
+            <h3 class="text-white font-bold text-sm sm:text-base md:text-lg">Custom Cutting</h3>
             <p class="text-xs sm:text-sm text-slate-300">Precise cutting to project specs</p>
           </div>
         </div>
@@ -1155,25 +1384,25 @@
 /* Mobile responsive overrides */
 @media (max-width: 768px) {
   .text-slide .slide-title {
-    font-size: 2.2rem !important;
+    font-size: 2rem !important;
   }
   .text-slide .slide-desc {
-    font-size: 0.95rem !important;
+    font-size: 0.9rem !important;
   }
   .relative.min-h-\[220px\] {
-    min-height: 200px !important;
+    min-height: 180px !important;
   }
 }
 
 @media (max-width: 480px) {
   .relative.min-h-\[220px\] {
-    min-height: 230px !important;
+    min-height: 200px !important;
   }
   .text-slide .slide-title {
-    font-size: 1.8rem !important;
+    font-size: 1.6rem !important;
   }
   .text-slide .slide-desc {
-    font-size: 0.85rem !important;
+    font-size: 0.8rem !important;
   }
 }
 
@@ -1206,58 +1435,64 @@
           <!-- Left Column -->
           <div class="space-y-3 sm:space-y-4">
             <div class="overflow-hidden rounded-2xl shadow-lg">
-              <img src="image/photo_1.jpg" alt="Warehouse" class="w-full aspect-square object-cover transition-transform duration-700 hover:scale-110">
+              <img src="image\photo_1.jpg" alt="Warehouse" class="w-full aspect-square object-cover transition-transform duration-700 hover:scale-110" loading="lazy">
             </div>
             <div class="overflow-hidden rounded-2xl shadow-lg">
-              <img src="image/photo_2.jpg" alt="Office" class="w-full aspect-video object-cover transition-transform duration-700 hover:scale-110">
+              <img src="image\photo_2.jpg" alt="Office" class="w-full aspect-video object-cover transition-transform duration-700 hover:scale-110" loading="lazy">
             </div>
           </div>
 
           <!-- Right Column -->
           <div class="pt-6 sm:pt-12 space-y-3 sm:space-y-4">
             <div class="overflow-hidden rounded-2xl shadow-lg">
-              <img src="image/photo_5.jpg" alt="Products" class="w-full aspect-video object-cover transition-transform duration-700 hover:scale-110">
+              <img src="image\photo_5.jpg" alt="Products" class="w-full aspect-video object-cover transition-transform duration-700 hover:scale-110" loading="lazy">
             </div>
             <div class="overflow-hidden rounded-2xl shadow-lg">
-              <img src="image/photo_3.jpg" alt="Construction" class="w-full aspect-square object-cover transition-transform duration-700 hover:scale-110">
+              <img src="image\photo_3.jpg" alt="Construction" class="w-full aspect-square object-cover transition-transform duration-700 hover:scale-110" loading="lazy">
             </div>
           </div>
         </div>
 
         <!-- Center Floating Counter Badge -->
-        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-orange-500 text-white p-6 sm:p-8 rounded-full border-8 border-white shadow-2xl z-10 hidden md:block animate-pulse">
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-orange-500 text-white p-5 sm:p-6 md:p-8 rounded-full border-8 border-white shadow-2xl z-10 hidden md:block animate-pulse">
           <div class="text-center">
-            <p class="text-3xl sm:text-4xl font-bold counter" data-target="9">9</p>
-            <p class="text-xs uppercase font-bold tracking-widest">Years</p>
+            <p class="text-2xl sm:text-3xl md:text-4xl font-bold counter" id="yearsCounter" data-target="9">9</p>
+            <p class="text-[10px] sm:text-xs uppercase font-bold tracking-widest">Years</p>
           </div>
         </div>
       </div>
 
-      <!-- Right Content Side -->
+      <!-- Right Content Side (Refactored to Match Reference Layout) -->
       <div>
-        <div class="flex items-center gap-2 text-orange-500 font-bold tracking-wider uppercase text-sm mb-4 justify-center lg:justify-start">
-          <i class="fas fa-angles-right text-xs"></i>
+        <!-- Badge Tagline -->
+        <div class="flex items-center gap-2 text-orange-500 font-bold tracking-wider uppercase text-xs sm:text-sm mb-4 justify-center lg:justify-start">
+          <i class="fas fa-angles-right text-[10px] sm:text-xs"></i>
           <span>ABOUT US</span>
         </div>
 
-        <h3 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-slate-900 mb-4 sm:mb-6 leading-tight text-center lg:text-left">
+        <!-- Hero Heading -->
+        <h3 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold text-slate-900 mb-3 sm:mb-4 md:mb-6 leading-tight text-center lg:text-left">
           We work since <span class="text-orange-500">2017.</span>
         </h3>
 
-        <p class="text-lg sm:text-xl md:text-2xl font-semibold text-slate-800 mb-4 sm:mb-6 text-center lg:text-left leading-relaxed">
+        <!-- Requested Lead Paragraph (Bold Subtitle Style) -->
+        <p class="text-base sm:text-lg md:text-xl lg:text-2xl font-semibold text-slate-800 mb-3 sm:mb-4 md:mb-6 text-center lg:text-left leading-relaxed">
           Zemen Trading PLC is a trusted supplier of premium industrial and construction materials, serving customers with quality products and consistent availability.
         </p>
 
-        <p class="text-slate-600 mb-6 sm:mb-8 text-base sm:text-lg text-center lg:text-left leading-relaxed">
+        <!-- Descriptive Body Paragraph -->
+        <p class="text-slate-600 mb-5 sm:mb-6 md:mb-8 text-sm sm:text-base lg:text-lg text-center lg:text-left leading-relaxed">
           Since 2017, Zemen Trading PLC has been the backbone of infrastructure development. We provide high-quality reinforcement steel that powers modern architecture—from skyscrapers to suburban bridges—backed by logistics that never slow down your project.
         </p>
 
+        <!-- Call To Action Button (Matches Reference Image) -->
         <div class="flex justify-center lg:justify-start">
-          <a href="about.html" class="inline-flex items-center gap-3 bg-orange-500 hover:bg-orange-600 text-white font-semibold text-base sm:text-lg px-6 sm:px-8 py-3 sm:py-4 rounded-xl shadow-lg transition-all duration-300 transform hover:-translate-y-1 min-h-[44px]">
+          <a href="about.html" class="inline-flex items-center gap-3 bg-orange-500 hover:bg-orange-600 text-white font-semibold text-sm sm:text-base md:text-lg px-5 sm:px-6 md:px-8 py-2.5 sm:py-3 md:py-4 rounded-xl shadow-lg transition-all duration-300 transform hover:-translate-y-1 min-h-[44px]">
             <span>About Us</span>
             <i class="fas fa-arrow-right"></i>
           </a>
         </div>
+
       </div>
 
     </div>
@@ -1285,8 +1520,10 @@
     <!-- Centered Header with Navigation Buttons Pushed Right -->
     <div class="flex flex-col md:flex-row items-center justify-between mb-8 sm:mb-12 relative gap-4 sm:gap-6">
       
+      <!-- Spacer for Desktop Balance -->
       <div class="hidden md:block w-32"></div>
 
+      <!-- Main Heading Text (Centered) with Reveal Animation -->
       <div class="max-w-2xl text-center mx-auto animate-fade-up">
         <div class="flex items-center justify-center gap-2 mb-3">
           <div class="h-px w-6 sm:w-8 bg-gradient-to-r from-transparent to-orange-500"></div>
@@ -1298,26 +1535,28 @@
         <h3 class="text-2xl sm:text-3xl md:text-5xl font-bold text-white mb-3 sm:mb-4 bg-gradient-to-r from-white via-orange-200 to-white bg-clip-text text-transparent bg-300% animate-gradient">
           High-Quality Rebar, Steel, & Construction Materials
         </h3>
-        <p class="text-slate-200/90 text-base sm:text-lg leading-relaxed px-2">
+        <p class="text-slate-200/90 text-sm sm:text-base md:text-lg leading-relaxed px-2">
           We stock a wide range of structural reinforcement and essential construction materials. All our products meet international standards and are ready for immediate dispatch to your project site.
         </p>
         
+        <!-- Animated Stats -->
         <div class="flex justify-center gap-6 sm:gap-8 mt-4 sm:mt-6">
           <div class="text-center">
-            <div class="text-xl sm:text-2xl font-bold text-orange-400 counter" data-target="500">0</div>
+            <div class="text-lg sm:text-xl md:text-2xl font-bold text-orange-400 counter" data-target="500">0</div>
             <div class="text-[10px] sm:text-xs text-slate-300 uppercase tracking-wider">Products</div>
           </div>
           <div class="text-center">
-            <div class="text-xl sm:text-2xl font-bold text-orange-400 counter" data-target="98">0</div>
+            <div class="text-lg sm:text-xl md:text-2xl font-bold text-orange-400 counter" data-target="98">0</div>
             <div class="text-[10px] sm:text-xs text-slate-300 uppercase tracking-wider">Satisfaction %</div>
           </div>
           <div class="text-center">
-            <div class="text-xl sm:text-2xl font-bold text-orange-400 counter" data-target="24">0</div>
+            <div class="text-lg sm:text-xl md:text-2xl font-bold text-orange-400 counter" data-target="24">0</div>
             <div class="text-[10px] sm:text-xs text-slate-300 uppercase tracking-wider">Hour Support</div>
           </div>
         </div>
       </div>
 
+      <!-- Manual Slide Navigation Buttons (Aligned Right) -->
       <div class="flex items-center gap-2 sm:gap-3 shrink-0">
         <button id="productPrevBtn" aria-label="Previous product" class="w-10 h-10 sm:w-12 sm:h-12 rounded-full border-2 border-white/30 text-white hover:bg-orange-500 hover:text-white hover:border-orange-500 transition-all duration-300 flex items-center justify-center shadow-lg hover:shadow-orange-500/30 active:scale-90 disabled:opacity-30 disabled:cursor-not-allowed backdrop-blur-sm bg-white/5">
           <i class="fas fa-arrow-left text-sm sm:text-lg"></i>
@@ -1340,7 +1579,8 @@
     <div id="productSlider" class="flex gap-4 sm:gap-8 overflow-x-auto snap-x snap-mandatory py-4 sm:py-6 px-1 scroll-smooth cursor-grab active:cursor-grabbing select-none" style="scrollbar-width: none; -ms-overflow-style: none;">
       
       <!-- Product 1: Deformed Rebar -->
-      <div class="product-card w-[280px] sm:w-[320px] md:w-[350px] lg:w-[360px] flex-shrink-0 snap-start bg-gradient-to-br from-[#007bc7] to-[#005a94] rounded-2xl shadow-2xl hover:shadow-orange-500/20 hover:border-2 hover:border-orange-400 transition-all duration-500 overflow-hidden group transform hover:-translate-y-3 hover:scale-[1.02] text-white flex flex-col justify-between relative">
+      <div class="product-card w-[260px] sm:w-[320px] md:w-[350px] lg:w-[360px] flex-shrink-0 snap-start bg-gradient-to-br from-[#007bc7] to-[#005a94] rounded-2xl shadow-2xl hover:shadow-orange-500/20 hover:border-2 hover:border-orange-400 transition-all duration-500 overflow-hidden group transform hover:-translate-y-3 hover:scale-[1.02] text-white flex flex-col justify-between relative">
+        <!-- Card Glow Effect -->
         <div class="absolute inset-0 bg-gradient-to-t from-orange-500/0 via-orange-500/0 to-orange-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
         <div>
           <div class="product-image-container relative h-48 sm:h-56 overflow-hidden">
@@ -1354,7 +1594,7 @@
             </button>
           </div>
           <div class="p-4 sm:p-5">
-            <h4 class="text-lg sm:text-xl font-bold text-white group-hover:text-orange-300 transition-colors">Deformed Rebar (Grade 75)</h4>
+            <h4 class="text-base sm:text-lg md:text-xl font-bold text-white group-hover:text-orange-300 transition-colors">Deformed Rebar (Grade 75)</h4>
             <p class="text-blue-100 text-xs sm:text-sm my-2">Standard reinforcement steel for concrete foundations and walls. High tensile strength.</p>
             <ul class="text-[10px] sm:text-xs text-blue-100 list-disc list-inside mb-2 sm:mb-3 space-y-1">
               <li>Excellent concrete bonding</li>
@@ -1372,7 +1612,7 @@
       </div>
       
       <!-- Product 2: National Cement -->
-      <div class="product-card w-[280px] sm:w-[320px] md:w-[350px] lg:w-[360px] flex-shrink-0 snap-start bg-gradient-to-br from-[#007bc7] to-[#005a94] rounded-2xl shadow-2xl hover:shadow-orange-500/20 hover:border-2 hover:border-orange-400 transition-all duration-500 overflow-hidden group transform hover:-translate-y-3 hover:scale-[1.02] text-white flex flex-col justify-between relative">
+      <div class="product-card w-[260px] sm:w-[320px] md:w-[350px] lg:w-[360px] flex-shrink-0 snap-start bg-gradient-to-br from-[#007bc7] to-[#005a94] rounded-2xl shadow-2xl hover:shadow-orange-500/20 hover:border-2 hover:border-orange-400 transition-all duration-500 overflow-hidden group transform hover:-translate-y-3 hover:scale-[1.02] text-white flex flex-col justify-between relative">
         <div class="absolute inset-0 bg-gradient-to-t from-orange-500/0 via-orange-500/0 to-orange-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
         <div>
           <div class="product-image-container relative h-48 sm:h-56 overflow-hidden">
@@ -1386,8 +1626,8 @@
             </button>
           </div>
           <div class="p-4 sm:p-5">
-            <h4 class="text-lg sm:text-xl font-bold text-white group-hover:text-orange-300 transition-colors">National Cement</h4>
-            <p class="text-blue-100 text-xs sm:text-sm my-2">It delivers consistent strength, superior quality, and reliable performance for every construction project.</p>
+            <h4 class="text-base sm:text-lg md:text-xl font-bold text-white group-hover:text-orange-300 transition-colors">National Cement</h4>
+            <p class="text-blue-100 text-xs sm:text-sm my-2">It delivers consistent strength, superior quality, and reliable performance for every construction project. As an authorized agent, our company proudly supplies genuine National Cement.</p>
             <ul class="text-[10px] sm:text-xs text-blue-100 list-disc list-inside mb-2 sm:mb-3 space-y-1">
               <li>Rapid setting (OPC)</li>
               <li>High final strength</li>
@@ -1404,11 +1644,11 @@
       </div>
       
       <!-- Product 3: Galvanized Wire -->
-      <div class="product-card w-[280px] sm:w-[320px] md:w-[350px] lg:w-[360px] flex-shrink-0 snap-start bg-gradient-to-br from-[#007bc7] to-[#005a94] rounded-2xl shadow-2xl hover:shadow-orange-500/20 hover:border-2 hover:border-orange-400 transition-all duration-500 overflow-hidden group transform hover:-translate-y-3 hover:scale-[1.02] text-white flex flex-col justify-between relative">
+      <div class="product-card w-[260px] sm:w-[320px] md:w-[350px] lg:w-[360px] flex-shrink-0 snap-start bg-gradient-to-br from-[#007bc7] to-[#005a94] rounded-2xl shadow-2xl hover:shadow-orange-500/20 hover:border-2 hover:border-orange-400 transition-all duration-500 overflow-hidden group transform hover:-translate-y-3 hover:scale-[1.02] text-white flex flex-col justify-between relative">
         <div class="absolute inset-0 bg-gradient-to-t from-orange-500/0 via-orange-500/0 to-orange-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
         <div>
           <div class="product-image-container relative h-48 sm:h-56 overflow-hidden">
-            <img src="image/PHOTO 8.webp" class="product-image w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" loading="lazy">
+            <img src="image\PHOTO 8.webp" class="product-image w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" loading="lazy">
             <div class="absolute inset-0 bg-gradient-to-t from-[#007bc7] via-transparent to-transparent opacity-60"></div>
             <span class="absolute top-3 sm:top-4 left-3 sm:left-4 bg-gradient-to-r from-green-500 to-green-600 text-white text-[10px] sm:text-xs font-bold px-2 sm:px-3 py-1 sm:py-1.5 rounded-full shadow-lg backdrop-blur-sm">
               <i class="fas fa-bolt mr-1"></i> Efficiency
@@ -1418,7 +1658,7 @@
             </button>
           </div>
           <div class="p-4 sm:p-5">
-            <h4 class="text-lg sm:text-xl font-bold text-white group-hover:text-orange-300 transition-colors">Galvanized Wire</h4>
+            <h4 class="text-base sm:text-lg md:text-xl font-bold text-white group-hover:text-orange-300 transition-colors">Galvanized Wire</h4>
             <p class="text-blue-100 text-xs sm:text-sm my-2">We distribute 1.5 mm and 2.5 mm galvanized wire</p>
             <div class="bg-blue-800/50 backdrop-blur-sm p-1.5 sm:p-2 rounded-xl text-[10px] sm:text-xs border border-blue-400/20">Black wire 1.5 | Black wire 2.5</div>
           </div>
@@ -1431,11 +1671,11 @@
       </div>
       
       <!-- Product 4: Nails -->
-      <div class="product-card w-[280px] sm:w-[320px] md:w-[350px] lg:w-[360px] flex-shrink-0 snap-start bg-gradient-to-br from-[#007bc7] to-[#005a94] rounded-2xl shadow-2xl hover:shadow-orange-500/20 hover:border-2 hover:border-orange-400 transition-all duration-500 overflow-hidden group transform hover:-translate-y-3 hover:scale-[1.02] text-white flex flex-col justify-between relative">
+      <div class="product-card w-[260px] sm:w-[320px] md:w-[350px] lg:w-[360px] flex-shrink-0 snap-start bg-gradient-to-br from-[#007bc7] to-[#005a94] rounded-2xl shadow-2xl hover:shadow-orange-500/20 hover:border-2 hover:border-orange-400 transition-all duration-500 overflow-hidden group transform hover:-translate-y-3 hover:scale-[1.02] text-white flex flex-col justify-between relative">
         <div class="absolute inset-0 bg-gradient-to-t from-orange-500/0 via-orange-500/0 to-orange-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
         <div>
           <div class="product-image-container relative h-48 sm:h-56 overflow-hidden">
-            <img src="image/PHOTO 9.jpg" class="product-image w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" loading="lazy">
+            <img src="image\PHOTO 9.jpg" class="product-image w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" loading="lazy">
             <div class="absolute inset-0 bg-gradient-to-t from-[#007bc7] via-transparent to-transparent opacity-60"></div>
             <span class="absolute top-3 sm:top-4 left-3 sm:left-4 bg-gradient-to-r from-purple-500 to-purple-600 text-white text-[10px] sm:text-xs font-bold px-2 sm:px-3 py-1 sm:py-1.5 rounded-full shadow-lg backdrop-blur-sm">
               <i class="fas fa-gem mr-1"></i> Premium
@@ -1445,7 +1685,7 @@
             </button>
           </div>
           <div class="p-4 sm:p-5">
-            <h4 class="text-lg sm:text-xl font-bold text-white group-hover:text-orange-300 transition-colors">Nails</h4>
+            <h4 class="text-base sm:text-lg md:text-xl font-bold text-white group-hover:text-orange-300 transition-colors">Nails</h4>
             <p class="text-blue-100 text-xs sm:text-sm my-2">We also distribute Nails from 5mm to 12mm</p>
             <div class="bg-blue-800/50 backdrop-blur-sm p-1.5 sm:p-2 rounded-xl text-[10px] sm:text-xs border border-blue-400/20">🔩 High Corrosion Resistance. size:- 6mm to 12mm</div>
           </div>
@@ -1458,11 +1698,11 @@
       </div>
 
       <!-- Product 5: Playwood -->
-      <div class="product-card w-[280px] sm:w-[320px] md:w-[350px] lg:w-[360px] flex-shrink-0 snap-start bg-gradient-to-br from-[#007bc7] to-[#005a94] rounded-2xl shadow-2xl hover:shadow-orange-500/20 hover:border-2 hover:border-orange-400 transition-all duration-500 overflow-hidden group transform hover:-translate-y-3 hover:scale-[1.02] text-white flex flex-col justify-between relative">
+      <div class="product-card w-[260px] sm:w-[320px] md:w-[350px] lg:w-[360px] flex-shrink-0 snap-start bg-gradient-to-br from-[#007bc7] to-[#005a94] rounded-2xl shadow-2xl hover:shadow-orange-500/20 hover:border-2 hover:border-orange-400 transition-all duration-500 overflow-hidden group transform hover:-translate-y-3 hover:scale-[1.02] text-white flex flex-col justify-between relative">
         <div class="absolute inset-0 bg-gradient-to-t from-orange-500/0 via-orange-500/0 to-orange-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
         <div>
           <div class="product-image-container relative h-48 sm:h-56 overflow-hidden">
-            <img src="image/PHOTO 15.jpg" class="product-image w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" loading="lazy">
+            <img src="image\PHOTO 15.jpg" class="product-image w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" loading="lazy">
             <div class="absolute inset-0 bg-gradient-to-t from-[#007bc7] via-transparent to-transparent opacity-60"></div>
             <span class="absolute top-3 sm:top-4 left-3 sm:left-4 bg-gradient-to-r from-amber-500 to-amber-600 text-white text-[10px] sm:text-xs font-bold px-2 sm:px-3 py-1 sm:py-1.5 rounded-full shadow-lg backdrop-blur-sm">
               <i class="fas fa-umbrella mr-1"></i> Weatherproof
@@ -1472,7 +1712,7 @@
             </button>
           </div>
           <div class="p-4 sm:p-5">
-            <h4 class="text-lg sm:text-xl font-bold text-white group-hover:text-orange-300 transition-colors">Playwoods</h4>
+            <h4 class="text-base sm:text-lg md:text-xl font-bold text-white group-hover:text-orange-300 transition-colors">Playwoods</h4>
             <p class="text-blue-100 text-xs sm:text-sm my-2">Other our supplied product was green and yellow playwood.</p>
             <div class="bg-blue-800/50 backdrop-blur-sm p-1.5 sm:p-2 rounded-xl text-[10px] sm:text-xs border border-blue-400/20">🏠 green | yellow playwood</div>
           </div>
@@ -1497,7 +1737,7 @@
   <!-- Dynamic Quick View Modal -->
   <div id="productModal" class="fixed inset-0 bg-slate-900/80 backdrop-blur-md z-50 hidden flex items-center justify-center p-3 sm:p-4 transition-opacity duration-300">
     <div class="bg-white rounded-2xl max-w-md w-full p-5 sm:p-6 shadow-2xl relative transform transition-all duration-300 scale-95 opacity-0 border border-orange-200 max-h-[90vh] overflow-y-auto" id="modalContent">
-      <button id="closeModalBtn" class="absolute top-3 sm:top-4 right-3 sm:right-4 text-slate-400 hover:text-slate-700 text-xl w-8 h-8 rounded-full flex items-center justify-center hover:bg-slate-100 transition-colors">
+      <button id="closeModalBtn" class="absolute top-3 sm:top-4 right-3 sm:right-4 text-slate-400 hover:text-slate-700 text-xl w-8 h-8 rounded-full flex items-center justify-center hover:bg-slate-100 transition-colors min-h-[44px] min-w-[44px]">
         <i class="fas fa-times"></i>
       </button>
       <div class="w-12 sm:w-16 h-1 bg-gradient-to-r from-orange-500 to-orange-400 rounded-full mb-3 sm:mb-4"></div>
@@ -1517,8 +1757,10 @@
   <div class="absolute -top-20 -left-20 w-64 sm:w-96 h-64 sm:h-96 bg-[#f97316]/30 rounded-full blur-[120px] animate-pulse-slow pointer-events-none"></div>
   <div class="absolute -bottom-20 -right-20 w-64 sm:w-96 h-64 sm:h-96 bg-[#f97316]/30 rounded-full blur-[120px] animate-pulse-slow animation-delay-2000 pointer-events-none"></div>
   
+  <!-- Subtle Gradient Overlay -->
   <div class="absolute inset-0 bg-gradient-to-b from-[#0a0f1a]/20 via-transparent to-[#0a0f1a]/30 pointer-events-none"></div>
   
+  <!-- Animated Background Pattern -->
   <div class="absolute inset-0 opacity-5 pointer-events-none">
     <div style="background-image: radial-gradient(circle at 20% 50%, #f97316 1px, transparent 1px); background-size: 30px 30px; width: 100%; height: 100%;"></div>
   </div>
@@ -1528,7 +1770,7 @@
       <div class="flex items-center justify-center gap-2 mb-3">
         <div class="h-px w-6 sm:w-8 bg-gradient-to-r from-transparent to-orange-400"></div>
         <h2 class="text-orange-400 font-extrabold tracking-widest uppercase text-xs flex items-center gap-2">
-          <i class="fas fa-star text-amber-300 animate-pulse"></i> TESTIMONIALS
+          <i class="fas fa-star text-amber-300 animate-pulse"></i> 
         </h2>
         <div class="h-px w-6 sm:w-8 bg-gradient-to-l from-transparent to-orange-400"></div>
       </div>
@@ -1544,14 +1786,18 @@
   <!-- Auto-Sliding Carousel Track -->
   <div class="relative w-full overflow-hidden py-4">
     
+    <!-- Side Fade Masks (Fade to Main Blue) -->
     <div class="absolute top-0 left-0 bottom-0 w-12 sm:w-16 md:w-32 bg-gradient-to-r from-[#007bc7] to-transparent z-20 pointer-events-none"></div>
     <div class="absolute top-0 right-0 bottom-0 w-12 sm:w-16 md:w-32 bg-gradient-to-l from-[#007bc7] to-transparent z-20 pointer-events-none"></div>
 
+    <!-- Infinite Scrolling Track -->
     <div class="flex gap-4 sm:gap-6 animate-marquee hover:[animation-play-state:paused] w-max">
       
-      <!-- Card 1: Ethiopia Ministry of Education -->
+      <!-- Card 1: Ethiopia Ministry of Education (Amharic) -->
       <div class="card-wrapper w-[280px] sm:w-[320px] md:w-[400px] shrink-0 relative group cursor-pointer">
+        <!-- Orange Overlay Filter Effect -->
         <div class="absolute inset-0 rounded-2xl bg-gradient-to-br from-orange-500/0 via-orange-500/0 to-orange-600/0 group-hover:from-orange-500/20 group-hover:via-orange-500/10 group-hover:to-orange-600/20 transition-all duration-500 z-10 pointer-events-none"></div>
+        <!-- Glow Ring on Hover -->
         <div class="absolute -inset-1 rounded-3xl bg-gradient-to-r from-orange-500/0 via-orange-400/0 to-orange-500/0 group-hover:from-orange-500/30 group-hover:via-orange-400/20 group-hover:to-orange-500/30 blur-xl transition-all duration-500 -z-0"></div>
         
         <div class="bg-[#0a0f1a]/80 backdrop-blur-md rounded-2xl p-4 sm:p-6 border border-orange-500/30 group-hover:border-orange-500 group-hover:shadow-[0_0_40px_rgba(249,115,22,0.4)] transition-all duration-500 relative z-10 transform group-hover:-translate-y-2 group-hover:scale-[1.02]">
@@ -1603,7 +1849,7 @@
             </div>
           </div>
           <div class="text-slate-200 text-xs sm:text-sm leading-relaxed mb-3 sm:mb-4 italic max-h-[120px] sm:max-h-[180px] overflow-y-auto scrollbar-thin scrollbar-thumb-orange-500/30 scrollbar-track-transparent group-hover:text-slate-100 transition-colors duration-300">
-            "With reference to letter No. SMRI/551/26 dated 10/03/2026, in which we were requested to issue a Satisfactory Performance Letter, we hereby provide this testimonial. We certify that we have purchased reinforcing bars (Re-Bar) of various sizes from Steely R.M.I. PLC, with a total transaction volume exceeding 11,000 tons."
+            "With reference to letter No. SMRI/551/26 dated 10/03/2026, in which we were requested to issue a Satisfactory Performance Letter, we hereby provide this testimonial. We certify that we have purchased reinforcing bars (Re-Bar) of various sizes from Steely R.M.I. PLC, with a total transaction volume exceeding 11,000 tons. During the execution of the contract, Steely R.M.I. PLC successfully supplied the materials in accordance with the required specifications, quality standards, and agreed timelines. Their performance was satisfactory, and the supplied products met our technical and operational requirements. We found Steely R.M.I. PLC to be reliable, professional, and cooperative throughout our business engagement. Based on our experience, we confidently recommend them for similar supply works."
           </div>
           <div class="flex items-center gap-3">
             <div class="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-gradient-to-tr from-orange-500 to-amber-500 flex items-center justify-center text-white font-bold text-xs sm:text-sm shadow-lg group-hover:scale-110 transition-transform duration-300">
@@ -1639,7 +1885,7 @@
             </div>
           </div>
           <div class="text-slate-200 text-xs sm:text-sm leading-relaxed mb-3 sm:mb-4 italic max-h-[120px] sm:max-h-[180px] overflow-y-auto scrollbar-thin scrollbar-thumb-orange-500/30 scrollbar-track-transparent group-hover:text-slate-100 transition-colors duration-300">
-            "We, the Oromia Construction Corporation (OCC), hereby confirm that STEELY RMI PLC. has successfully supplied various sizes of reinforcement bars as per the terms of the mentioned tender, with a total value of 273,715,471.85 (Two Hundred Seventy-Three Million, Seven Hundred Fifteen Thousand, Four Hundred Seventy-One and 85/100 Ethiopian Birr)."
+            "We, the Oromia Construction Corporation (OCC), hereby confirm that STEELY RMI PLC. has successfully supplied various sizes of reinforcement bars as per the terms of the mentioned tender, with a total value of 273,715,471.85 (Two Hundred Seventy-Three Million, Seven Hundred Fifteen Thousand, Four Hundred Seventy-One and 85/100 Ethiopian Birr). Therefore, we hereby certify that the company has fulfilled its contractual obligations in a satisfactory manner and in full compliance with our requirements."
           </div>
           <div class="flex items-center gap-3">
             <div class="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-gradient-to-tr from-orange-500 to-amber-500 flex items-center justify-center text-white font-bold text-xs sm:text-sm shadow-lg group-hover:scale-110 transition-transform duration-300">
@@ -1685,7 +1931,7 @@
             <div class="ml-auto text-orange-400 text-[8px] sm:text-[10px] font-bold border border-orange-400/30 px-1.5 sm:px-2 py-0.5 rounded-full group-hover:border-orange-400/60 group-hover:bg-orange-400/10 transition-all duration-300">⭐ Verified</div>
           </div>
           <div class="text-slate-200 text-xs sm:text-sm leading-relaxed mb-3 sm:mb-4 italic max-h-[120px] sm:max-h-[180px] overflow-y-auto scrollbar-thin scrollbar-thumb-orange-500/30 scrollbar-track-transparent group-hover:text-slate-100 transition-colors duration-300">
-            "We have been sourcing our structural steel requirements from Steely RMI for the past 3 years. Their ability to consistently deliver high-quality rebar and other construction materials on time has been instrumental in keeping our large-scale infrastructure projects on schedule."
+            "We have been sourcing our structural steel requirements from Steely RMI for the past 3 years. Their ability to consistently deliver high-quality rebar and other construction materials on time has been instrumental in keeping our large-scale infrastructure projects on schedule. The technical support and after-sales service provided by their team are exemplary. We particularly appreciate their willingness to work with us on custom specifications and tight deadlines. Steely RMI has proven to be a dependable partner for our corporation's diverse construction needs across Ethiopia."
           </div>
           <div class="flex items-center gap-3">
             <div class="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-gradient-to-tr from-orange-500 to-amber-500 flex items-center justify-center text-white font-bold text-xs sm:text-sm shadow-lg group-hover:scale-110 transition-transform duration-300">
@@ -1720,7 +1966,7 @@
             </div>
           </div>
           <div class="text-slate-200 text-xs sm:text-sm leading-relaxed mb-3 sm:mb-4 italic max-h-[120px] sm:max-h-[180px] overflow-y-auto scrollbar-thin scrollbar-thumb-orange-500/30 scrollbar-track-transparent group-hover:text-slate-100 transition-colors duration-300" dir="rtl" lang="am">
-            "ስቴሊ አር.ኤም. አይ. ኃሊ.የተ.የገ.ማህበር ከመከሪያ ቤታችን ጋር ውለታ በመፈጸም የአርማታ ብረት ሲያቀርብ መቆየቱን በመግለጽ የመልካም ሥራ አፈጻጸም ማስረጃ እንዲጻፍለት በ16/03/2026 ዓ.ም በተጻፈ ደብዳቤ ጠይቋል፡፡ በመሆኑም ትምህርት ሚኒስቴር ለዩኒቨርሲቲዎች ግንባታ፣ለሁለተኛ እና አንደኛ ደረጃ ትምህርት ቤቶች መልሶ ግንባታ የሚያስፈልገውን አርማታ ብረት ለመግዛት በተለያየ ጊዜ ባወጣው ጨረታ ላይ ስቴሊ አር.ኤም. አይ. ኃሊ.የተ.የገ.ማህበር ተወዳድሮ አሸናፊ በመሆኑ ከመስሪያ ቤታችን ጋርውል ፈርማል፡፡"
+            "ስቴሊ አር.ኤም. አይ. ኃሊ.የተ.የገ.ማህበር ከመከሪያ ቤታችን ጋር ውለታ በመፈጸም የአርማታ ብረት ሲያቀርብ መቆየቱን በመግለጽ የመልካም ሥራ አፈጻጸም ማስረጃ እንዲጻፍለት በ16/03/2026 ዓ.ም በተጻፈ ደብዳቤ ጠይቋል፡፡ በመሆኑም ትምህርት ሚኒስቴር ለዩኒቨርሲቲዎች ግንባታ፣ለሁለተኛ እና አንደኛ ደረጃ ትምህርት ቤቶች መልሶ ግንባታ የሚያስፈልገውን አርማታ ብረት ለመግዛት በተለያየ ጊዜ ባወጣው ጨረታ ላይ ስቴሊ አር.ኤም. አይ. ኃሊ.የተ.የገ.ማህበር ተወዳድሮ አሸናፊ በመሆኑ ከመስሪያ ቤታችን ጋርውል ፈርማል፡፡ ድርጅቱም በገባው ውል መሰረት የተለያየ መጠን ያለውን አርማታ ብረት በማቅረብ ግዴታውን በብቃት የተወጣ በመሆኑ ይህን የመልካም ስራ አፈጻጸም ደብዳቤ ከምስጋና ጋር የሰጠናቸው መሆኑን እንገልጻለን፡፡"
           </div>
           <div class="flex items-center gap-3">
             <div class="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-gradient-to-tr from-orange-500 to-amber-500 flex items-center justify-center text-white font-bold text-xs sm:text-sm shadow-lg group-hover:scale-110 transition-transform duration-300">
@@ -1754,7 +2000,7 @@
             </div>
           </div>
           <div class="text-slate-200 text-xs sm:text-sm leading-relaxed mb-3 sm:mb-4 italic max-h-[120px] sm:max-h-[180px] overflow-y-auto scrollbar-thin scrollbar-thumb-orange-500/30 scrollbar-track-transparent group-hover:text-slate-100 transition-colors duration-300">
-            "With reference to letter No. SMRI/551/26 dated 10/03/2026, in which we were requested to issue a Satisfactory Performance Letter, we hereby provide this testimonial. We certify that we have purchased reinforcing bars (Re-Bar) of various sizes from Steely R.M.I. PLC, with a total transaction volume exceeding 11,000 tons."
+            "With reference to letter No. SMRI/551/26 dated 10/03/2026, in which we were requested to issue a Satisfactory Performance Letter, we hereby provide this testimonial. We certify that we have purchased reinforcing bars (Re-Bar) of various sizes from Steely R.M.I. PLC, with a total transaction volume exceeding 11,000 tons. During the execution of the contract, Steely R.M.I. PLC successfully supplied the materials in accordance with the required specifications, quality standards, and agreed timelines. Their performance was satisfactory, and the supplied products met our technical and operational requirements. We found Steely R.M.I. PLC to be reliable, professional, and cooperative throughout our business engagement. Based on our experience, we confidently recommend them for similar supply works."
           </div>
           <div class="flex items-center gap-3">
             <div class="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-gradient-to-tr from-orange-500 to-amber-500 flex items-center justify-center text-white font-bold text-xs sm:text-sm shadow-lg group-hover:scale-110 transition-transform duration-300">
@@ -1788,7 +2034,7 @@
             </div>
           </div>
           <div class="text-slate-200 text-xs sm:text-sm leading-relaxed mb-3 sm:mb-4 italic max-h-[120px] sm:max-h-[180px] overflow-y-auto scrollbar-thin scrollbar-thumb-orange-500/30 scrollbar-track-transparent group-hover:text-slate-100 transition-colors duration-300">
-            "We, the Oromia Construction Corporation (OCC), hereby confirm that STEELY RMI PLC. has successfully supplied various sizes of reinforcement bars as per the terms of the mentioned tender, with a total value of 273,715,471.85 (Two Hundred Seventy-Three Million, Seven Hundred Fifteen Thousand, Four Hundred Seventy-One and 85/100 Ethiopian Birr)."
+            "We, the Oromia Construction Corporation (OCC), hereby confirm that STEELY RMI PLC. has successfully supplied various sizes of reinforcement bars as per the terms of the mentioned tender, with a total value of 273,715,471.85 (Two Hundred Seventy-Three Million, Seven Hundred Fifteen Thousand, Four Hundred Seventy-One and 85/100 Ethiopian Birr). Therefore, we hereby certify that the company has fulfilled its contractual obligations in a satisfactory manner and in full compliance with our requirements."
           </div>
           <div class="flex items-center gap-3">
             <div class="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-gradient-to-tr from-orange-500 to-amber-500 flex items-center justify-center text-white font-bold text-xs sm:text-sm shadow-lg group-hover:scale-110 transition-transform duration-300">
@@ -1832,7 +2078,7 @@
             <div class="ml-auto text-orange-400 text-[8px] sm:text-[10px] font-bold border border-orange-400/30 px-1.5 sm:px-2 py-0.5 rounded-full group-hover:border-orange-400/60 group-hover:bg-orange-400/10 transition-all duration-300">⭐ Verified</div>
           </div>
           <div class="text-slate-200 text-xs sm:text-sm leading-relaxed mb-3 sm:mb-4 italic max-h-[120px] sm:max-h-[180px] overflow-y-auto scrollbar-thin scrollbar-thumb-orange-500/30 scrollbar-track-transparent group-hover:text-slate-100 transition-colors duration-300">
-            "We have been sourcing our structural steel requirements from Steely RMI for the past 3 years. Their ability to consistently deliver high-quality rebar and other construction materials on time has been instrumental in keeping our large-scale infrastructure projects on schedule."
+            "We have been sourcing our structural steel requirements from Steely RMI for the past 3 years. Their ability to consistently deliver high-quality rebar and other construction materials on time has been instrumental in keeping our large-scale infrastructure projects on schedule. The technical support and after-sales service provided by their team are exemplary. We particularly appreciate their willingness to work with us on custom specifications and tight deadlines. Steely RMI has proven to be a dependable partner for our corporation's diverse construction needs across Ethiopia."
           </div>
           <div class="flex items-center gap-3">
             <div class="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-gradient-to-tr from-orange-500 to-amber-500 flex items-center justify-center text-white font-bold text-xs sm:text-sm shadow-lg group-hover:scale-110 transition-transform duration-300">
@@ -1954,173 +2200,6 @@
   }
 </style>
 
-<script>
-  // Read More Toggle Functionality
-  document.addEventListener('DOMContentLoaded', function() {
-    const buttons = document.querySelectorAll('.read-more-btn');
-    
-    buttons.forEach(button => {
-      button.addEventListener('click', function(e) {
-        e.stopPropagation();
-        const card = this.closest('.bg-[#0a0f1a]/80');
-        const textContainer = card.querySelector('.leading-relaxed');
-        
-        if (textContainer) {
-          if (textContainer.style.maxHeight === 'none' || textContainer.classList.contains('expanded')) {
-            textContainer.style.maxHeight = window.innerWidth < 640 ? '120px' : '180px';
-            textContainer.classList.remove('expanded');
-            this.querySelector('span').textContent = 'Read More';
-          } else {
-            textContainer.style.maxHeight = textContainer.scrollHeight + 'px';
-            textContainer.classList.add('expanded');
-            this.querySelector('span').textContent = 'Read Less';
-          }
-          this.classList.toggle('expanded');
-        }
-      });
-    });
-  });
-</script>
-
-<!-- CSS with Enhanced Animations -->
-<style>
-  @keyframes marquee {
-    0% { transform: translateX(0%); }
-    100% { transform: translateX(-50%); }
-  }
-  .animate-marquee {
-    display: flex;
-    animation: marquee 25s linear infinite;
-  }
-  
-  @keyframes fadeUp {
-    from {
-      opacity: 0;
-      transform: translateY(30px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-  .animate-fade-up {
-    animation: fadeUp 0.8s ease-out forwards;
-  }
-  
-  @keyframes pulse-slow {
-    0%, 100% { opacity: 0.5; transform: scale(1); }
-    50% { opacity: 0.8; transform: scale(1.1); }
-  }
-  .animate-pulse-slow {
-    animation: pulse-slow 4s ease-in-out infinite;
-  }
-  .animation-delay-2000 {
-    animation-delay: 2s;
-  }
-  
-  @keyframes gradient {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
-  }
-  .bg-300\% {
-    background-size: 300% 300%;
-  }
-  .animate-gradient {
-    animation: gradient 4s ease-in-out infinite;
-  }
-  
-  /* Particles */
-  .particle {
-    position: absolute;
-    border-radius: 50%;
-    background: rgba(249, 115, 22, 0.15);
-    animation: float-particle linear infinite;
-  }
-  .particle-1 { width: 300px; height: 300px; top: -100px; right: -100px; animation-duration: 20s; }
-  .particle-2 { width: 200px; height: 200px; bottom: -50px; left: -50px; animation-duration: 25s; animation-delay: -5s; }
-  .particle-3 { width: 150px; height: 150px; top: 50%; left: 50%; animation-duration: 30s; animation-delay: -10s; }
-  .particle-4 { width: 250px; height: 250px; top: 20%; right: 20%; animation-duration: 22s; animation-delay: -3s; }
-  .particle-5 { width: 180px; height: 180px; bottom: 30%; left: 10%; animation-duration: 28s; animation-delay: -7s; }
-  
-  @keyframes float-particle {
-    0% { transform: translate(0, 0) rotate(0deg) scale(1); opacity: 0.1; }
-    25% { transform: translate(50px, -50px) rotate(90deg) scale(1.2); opacity: 0.2; }
-    50% { transform: translate(-30px, 30px) rotate(180deg) scale(0.8); opacity: 0.15; }
-    75% { transform: translate(40px, 20px) rotate(270deg) scale(1.1); opacity: 0.2; }
-    100% { transform: translate(0, 0) rotate(360deg) scale(1); opacity: 0.1; }
-  }
-  
-  /* Scrollbar Hide */
-  #productSlider::-webkit-scrollbar {
-    display: none;
-  }
-  
-  /* Counter Animation */
-  .counter {
-    display: inline-block;
-  }
-
-  /* Mobile responsive overrides for product cards */
-  @media (max-width: 640px) {
-    .product-card {
-      width: 260px !important;
-    }
-    #productSlider {
-      gap: 12px !important;
-      padding: 8px 4px !important;
-    }
-  }
-
-  @media (max-width: 480px) {
-    .product-card {
-      width: 240px !important;
-    }
-    #productSlider {
-      gap: 10px !important;
-    }
-  }
-
-  /* Prevent hover effects on touch devices */
-  @media (hover: none) {
-    .product-card:hover {
-      transform: none !important;
-      border-color: transparent !important;
-      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04) !important;
-    }
-    .product-card .group-hover\:scale-110 {
-      transform: none !important;
-    }
-    .product-card .group-hover\:text-orange-300 {
-      color: #ffffff !important;
-    }
-    .product-image-container:hover .product-image {
-      transform: none !important;
-    }
-    .product-image-container:hover::after {
-      left: -100% !important;
-    }
-    .quick-view-btn:hover {
-      background-color: rgba(255, 255, 255, 0.9) !important;
-      color: inherit !important;
-    }
-    .quick-view-btn:hover .text-\[\#007bc7\] {
-      color: #007bc7 !important;
-    }
-    .feature-card-modern:hover {
-      transform: none !important;
-      border-color: rgba(255, 255, 255, 0.2) !important;
-      box-shadow: none !important;
-    }
-    #heroCatalogBtn:hover, #heroQuoteBtn:hover {
-      transform: none !important;
-    }
-    .animate-float, .animate-float-delay-1, .animate-float-delay-2 {
-      animation-play-state: paused;
-    }
-  }
-</style>
-
 <!-- Services Section with Fixed Background & Enhanced Effects -->
 <section id="services" class="py-16 sm:py-24 bg-cover bg-center bg-no-repeat relative overflow-hidden" style="background-image: linear-gradient(rgba(15, 23, 42, 0.85), rgba(15, 23, 42, 0.85)), url('image/photo 11.jpg'); background-attachment: scroll;">
   
@@ -2192,8 +2271,7 @@
 
 <!-- Enhanced JavaScript Controller with Counter Animation -->
 <script>
-  (function() {
-    'use strict';
+  document.addEventListener('DOMContentLoaded', function () {
     // Product Slider Logic
     const slider = document.getElementById('productSlider');
     const prevBtn = document.getElementById('productPrevBtn');
@@ -2221,6 +2299,7 @@
       prevBtn.disabled = slider.scrollLeft <= 10;
       nextBtn.disabled = slider.scrollLeft + slider.clientWidth >= slider.scrollWidth - 10;
       
+      // Update Progress Bar
       if (progressBar) {
         const progress = maxScroll > 0 ? (slider.scrollLeft / maxScroll) * 100 : 0;
         progressBar.style.width = `${Math.min(progress, 100)}%`;
@@ -2390,10 +2469,8 @@
 
     // Initialize Auto Sliding
     startAutoSlide();
-  })();
+  });
 </script>
-
-
 
     <!-- Contact Section -->
     <section id="contact" class="py-16 sm:py-24 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white relative overflow-hidden">
